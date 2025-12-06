@@ -38,10 +38,13 @@ function App() {
   
    } , [length,charAllowed,numberAllowed,passwordGenerator])
 
+   let handlePassChange = ()=>{
+      passwordGenerator();
+   }
 
   return (
     <>
-     <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-6 py-6 my-8 text-orange-500 bg-gray-800'>
+     <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-6 py-6 my-8 text-orange-500 bg-slate-500'>
       <h1 className='text-white text-center py-1  my-3 text-xl'>Password generator</h1>
       <div className='flex shadow rounded-lg overflow-hidden mb-4'>
         <input type="text"
@@ -52,7 +55,7 @@ function App() {
          ref={passwordRef}
          
         />
-        <button onClick={copyPasswordToClipboard} className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>copy</button>
+        <button onClick={copyPasswordToClipboard} className='outline-none hover:bg-sky-700 bg-blue-700 text-white px-3 py-0.5 shrink-0'>copy</button>
       </div>
        <div className='flex text-sm gap-x-2'>
         <div className='flex items-center gap-x-1'>
@@ -85,8 +88,10 @@ function App() {
            <label htmlFor='charInput'>Characters</label>
         </div>
        </div>
+       <div className="genpass text-center mx-28 py-2 my-10 text-slate-700 bg-orange-400 hover:bg-red-300">
+       <button onClick={handlePassChange}>New Password</button>
+       </div>
      </div>
-
     </>
   )
 }
